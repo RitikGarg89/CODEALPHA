@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritik Garg</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .poppins-regular {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .poppins-bold {
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100px;
+            background-color: rgb(8, 8, 18);
+        }
+
+        .Name {
+            font-size: 3rem;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 22px;
+            font-size: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: rgb(119, 31, 202);
+        }
+
+        nav ul li a:hover {
+            color: rgb(159, 79, 234);
+            font-size: 2.5rem;
+            transform: scale(1.1);
+            transition: 0.2s ease-in-out;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 120px 0;
+        }
+
+        .firstSection>div {
+            width: 30%;
+        }
+
+        .leftSection {
+            font-size: 2.7rem;
+        }
+
+        .rightSection img {
+            width: 90%;
+        }
+
+        .purple {
+            color: rgb(151, 65, 232);
+        }
+
+        #element {
+            color: rgb(151, 65, 232);
+        }
+
+        .secondSection {
+            max-width: 80vw;
+            margin: 0 auto;
+            height: 80vh;
+        }
+
+        .secondSection .box {
+            background: rgb(161, 88, 229);
+            width: 80vw;
+            height: 2px;
+            margin: 124px 0;
+            display: flex;
+        }
+
+        .heading {
+            font-size: 4rem;
+        }
+
+        .secondSection .vertical {
+            height: 93px;
+            width: 1px;
+            background-color: rgb(161, 88, 229);
+            margin: 0 153px;
+        }
+
+        .workImage {
+            width: 111px;
+            position: relative;
+            top: -119px;
+            left: -55px;
+        }
+
+        .workTitle {
+            width: 205px;
+            position: relative;
+            top: -7px;
+            left: -94px;
+            color: rgb(151, 65, 232);
+            font-size: 1.22rem;
+
+        }
+
+        .workDesc {
+            width: 205px;
+            position: relative;
+            top: 2px;
+            color: gray;
+            left: -94px;
+            font-size: 1rem;
+        }
+
+        .thirdSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 90px 0;
+        }
+
+        .thirdSection>div {
+            width: 30%;
+        }
+
+        .thirdleftSection img {
+            width: 90%;
+        }
+
+        .thirdrightSection {
+            font-size: 2.7rem;
+        }
+
+        #element2 {
+            color: rgb(151, 65, 232);
+            font-size: 2.5rem;
+        }
+
+        .skillText {
+            font-size: 2rem;
+        }
+
+        .fourthSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 90px 0;
+        }
+
+        .fourthleftSection {
+            width: 90%;
+            margin: 0 192px;
+        }
+
+        .purple-resume {
+            color: rgb(151, 65, 232);
+            font-size: 3.5rem;
+        }
+
+        .resume-text {
+            font-size: 2.3rem;
+            width: 80%;
+        }
+
+        .fourthrightSection img {
+            width: 90%;
+        }
+
+        .Download {
+            background-color: rgb(151, 65, 232);
+            border: 2px solid transparent;
+            color: white;
+            padding: 12px 24px;
+            font-size: 2.4rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .Download:hover {
+            background-color: transparent;
+            border-color: rgb(151, 65, 232);
+            color: rgb(151, 65, 232);
+            font-size: 2.5rem;
+        }
+
+        .Download.loading {
+            background-color: transparent;
+            border-color: rgb(151, 65, 232);
+            color: rgb(151, 65, 232);
+            cursor: not-allowed;
+        }
+
+        .spinner {
+            display: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgb(151, 65, 232);
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-left: 8px;
+        }
+
+        .loading .spinner {
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .button {
+            background-color: rgb(151, 65, 232);
+            border: 2px solid transparent;
+            color: white;
+            padding: 12px 24px;
+            font-size: 2.4rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: transparent;
+            border-color: rgb(151, 65, 232);
+            color: rgb(151, 65, 232);
+            font-size: 2.5rem;
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+
+
+        #scrollBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(151, 65, 232);
+            color: white;
+            border: 3px solid black;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        #scrollBtn:hover {
+            background-color: transparent;
+            color: rgb(151, 65, 232);
+            font-size: 40px;
+            border: 4px solid rgb(151, 65, 232);
+
+        }
+
+
+
+        .footer {
+            background: rgb(8, 8, 18);
+            color: #ffffff;
+            padding: 40px 10%;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .footer-left,
+        .footer-center,
+        .footer-right {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        h2,
+        h3 {
+            color: rgb(161, 88, 229);
+        }
+
+        .highlight {
+            color: rgb(151, 65, 232);
+        }
+
+        .social-icons {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .social-icons li {
+            margin: 0 10px;
+        }
+
+        .social-icons img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        .quick-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-links li {
+            margin: 8px 0;
+        }
+
+        .quick-links a {
+            text-decoration: none;
+            color: rgb(161, 88, 229);
+            transition: color 0.3s ease-in-out;
+        }
+
+        .quick-links a:hover {
+            color: rgb(159, 79, 234);
+            font-size: 1.1rem;
+            transform: scale(1.1);
+            transition: 0.2s ease-in-out;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="Name"><b>Ritik Garg</b></div>
+            <div class="right">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Project</a></li>
+                    <li><a href="#">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                Hi I Am <span class="purple"><b>Ritik Garg</b></span>
+                <div> And I am a passionate</div>
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img src="1.png" alt="">
+            </div>
+        </section>
+        <section class="secondSection">
+            <h1 class="heading">
+                Work Experience
+            </h1>
+            <div class="box">
+                <div class="vertical">
+                    <img class="workImage" src="FullStack.png">
+                    <div class="workTitle">
+                        <b>Full Stack Developer</b>
+                    </div>
+                    <div class="workTitle"><b>(2023 - Present)</b></div>
+                    <div class="workDesc">Built responsive websites and web applications using HTML, CSS, JavaScript,
+                        and Django.</div>
+                </div>
+                <div class="vertical">
+                    <img class="workImage" src="Python.png">
+                    <div class="workTitle">
+                        <b>Python Developer</b>
+                    </div>
+                    <div class="workTitle"><b>(2023 - Present)</b></div>
+                    <div class="workDesc">Built scalable applications using Python, Django, and MySQL, integrating data
+                        analysis with pandas for efficient data
+                        handling.</div>
+                </div>
+                <div class="vertical">
+                    <img class="workImage" src="c.png">
+                    <div class="workTitle">
+                        <b>C & DSA Developer </b>
+                        <b>(2022 - Present)</b>
+                    </div>
+                    <div class="workDesc">Implemented optimized algorithms and data structures using C, enhancing
+                        performance and problem-solving capabilities.</div>
+                </div>
+                <div class="vertical">
+                    <img class="workImage" src="ai.png">
+                    <div class="workTitle">
+                        <b>AI Enthusiast</b>
+                        <b>(2023 - Present)</b>
+                    </div>
+                    <div class="workDesc">Analyzed datasets using pandas and NumPy and visualized trends with
+                        Matplotlib, exploring basic machine learning models.</div>
+                </div>
+                <div class="vertical">
+                    <img class="workImage" src="Network.png">
+                    <div class="workTitle">
+                        <b>Network Security Learner</b>
+                        <b>(2023 - Present)</b>
+                    </div>
+                    <div class="workDesc">Explored cybersecurity fundamentals, penetration testing, and encryption,
+                        focusing on securing applications and
+                        networks.</div>
+                </div>
+
+            </div>
+        </section>
+        <section class="thirdSection">
+            <div class="thirdleftSection">
+                <img src="skills.png" alt="">
+            </div>
+            <div class="thirdrightSection">
+                <h1 class="purple"><b>My Skills</b></h1>
+                <p class="skillText">These are my core skills and expertise that showcase my professional strengths and
+                    capabilities:</p>
+                <span id="element2"></span>
+            </div>
+        </section>
+        <section class="fourthSection">
+            <div class="fourthleftSection">
+                <span class="purple-resume"><b>Resume</b></span>
+                <p class="resume-text"> Ritik Garg is a skilled Full Stack Developer with expertise in Python, Django,
+                    and
+                    MySQL.
+                    Passionate about building
+                    efficient and scalable applications.</p>
+                <button class="Download" id="downloadBtn"><b>Download</b></button>
+                <a href="your_resume_link.pdf"><button class="button">Visit My Resume</button></a>
+
+                <span id="element"></span>
+            </div>
+            <div class="fourthrightSection">
+                <img src="resume.png" alt="">
+        </section>
+    </main>
+    <button onclick="scrollToTop()" id="scrollBtn">↑</button>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <h2>Hello, I'm <span class="highlight">Ritik Garg</span></h2>
+                    <p>Passionate Developer | Problem Solver | Tech Enthusiast</p>
+                </div>
+
+                <div class="footer-center">
+                    <h3>Connect with Me</h3>
+                    <ul class="social-icons">
+                        <li><a href="https://github.com/RitikGarg89" target="_blank"><img src="github.png"
+                                    alt="GitHub"></a>
+                        </li>
+                        <li><a href="https://www.instagram.com/the_monster.89" target="_blank"><img src="Instragram.png"
+                                    alt="Instagram"></a></li>
+                        <li><a href="https://www.linkedin.com/in/ritik-garg-853a68289" target="_blank"><img
+                                    src="Linkedin.png" alt="LinkedIn"></a></li>
+                        <li><a href="https://www.facebook.com/RITIK.garg.56884761" target="_blank"><img
+                                    src="Facebook.png" alt="Facebook"></a></li>
+                        <li><a href="mailto:ritikgarg8910@gmail.com"><img src="Mail.png" alt="Email"></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-right">
+                    <h3>Quick Links</h3>
+                    <ul class="quick-links">
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="resume.pdf" target="_blank">Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Ritik Garg | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['<b>Web Developer</b>', '<b>Python Programmer</b>', '<b>Java Programmer</b>', '<b>JavaScript Developer</b>', '<b>Problem Solver</b>', '<b>Data Science Enthusiast</b>', '<b>AI & ML Enthusiast</b>', '<b>Cybersecurity Learner</b>', '<b>Competitive Coder</b>', '<b>Open Source Contributor</b>'],
+            typeSpeed: 50,
+            backSpeed: 50,
+            backDelay: 1000,
+            loop: true
+        });
+    </script>
+    <script>
+        var typed = new Typed('#element2', {
+            strings: [
+                '<b>Web Developer</b>',
+                '<b>Python Programmer</b>',
+                '<b>Java Programmer</b>',
+                '<b>C Programmer</b>',
+                '<b>C++ Programmer</b>',
+                '<b>JavaScript Developer</b>',
+                '<b>SQL Developer</b>',
+                '<b>Problem Solver</b>',
+                '<b>Data Science Enthusiast</b>',
+                '<b>AI & ML Enthusiast</b>',
+                '<b>Cybersecurity Learner</b>',
+                '<b>Competitive Coder</b>',
+                '<b>Open Source Contributor</b>',
+                '<b>Full Stack Developer</b>',
+                '<b>Django Developer</b>',
+                '<b>Flask Developer</b>',
+                '<b>React Developer</b>',
+                '<b>MySQL Expert</b>',
+                '<b>MongoDB Learner</b>',
+                '<b>Data Structures & Algorithms (DSA)</b>'
+            ]
+            ,
+            typeSpeed: 50,
+            backSpeed: 50,
+            backDelay: 1000,
+            loop: true
+        });
+    </script>
+    <script>window.onscroll = function () {
+            showScrollButton();
+        };
+
+        function showScrollButton() {
+            var scrollBtn = document.getElementById("scrollBtn");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        }
+
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    </script>
+    <script>
+        document.getElementById("downloadBtn").addEventListener("click", function () {
+            let button = this;
+            button.classList.add("loading");
+            button.innerHTML = "Downloading <span class='spinner'></span>";
+
+            setTimeout(() => {
+                button.classList.remove("loading");
+                button.innerHTML = "Download";
+            }, 3000); // Simulates a 3-second download
+        });
+    </script>
+</body>
+
+</html>
